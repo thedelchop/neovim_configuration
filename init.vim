@@ -63,6 +63,9 @@ endif
 " NeoMake configuration options (https://github.com/neomake/neomake)
 let g:neomake_ruby_rubocop_args=['--format', 'fuubar', '-D', '-R']
 let g:neomake_open_list = 2
+let g:neomake_list_height = 50
+let g:neomake_highlight_lines = 1
+let g:airline#extensions#neomake#enabled = 1
 call neomake#configure#automake('nw', 500)
 
 " NERDCommenter configuration options (https://github.com/scrooloose/nerdcommenter)
