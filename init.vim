@@ -187,6 +187,8 @@ let g:NERDTreeCreatePrefix = 'silent keepalt'
 let g:NERDTreeIgnore=['\.git$', '\.sass-cache$', 'log$', 'vendor$']
 let g:NERDTreeMarkBookmarks = 0
 let g:NERDTreeBookmarksSort = 0
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Setup eSearch for searching across files
 let g:esearch = {
@@ -383,8 +385,12 @@ autocmd User Rails/spec/javascripts/*_spec.js.coffee let b:rails_related = 'app/
 autocmd User Rails/app/assets/javascripts/*.js.coffee let b:rails_alternate = 'spec/javascripts/' . rails#buffer().name()[23:-11] . '_spec.js.coffee'
 autocmd User Rails/spec/javascripts/*_spec.js.coffee let b:rails_alternate = 'app/assets/javascripts/' . rails#buffer().name()[17:-16] . '.js.coffee'
 
-" Try to open up NERDTree when NeoVim starts
-autocmd VimEnter * NERDTree
+" Open up NERDTree when we start nvim on a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Close NVIM if the only remaining window is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
