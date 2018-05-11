@@ -61,10 +61,33 @@ endif
 " End dein Scripts-------------------------
 
 " NeoMake configuration options (https://github.com/neomake/neomake)
-let g:neomake_ruby_rubocop_args=['--format', 'fuubar', '-D', '-R']
 let g:neomake_open_list = 2
 let g:neomake_list_height = 50
 let g:neomake_highlight_lines = 1
+let g:neomake_enabled_maker = [
+  \'drafter',
+  \'coffeelint',
+  \'csslint',
+  \'eslint_d',
+  \'jsonlint',
+  \'mri',
+  \'rubocop_rails',
+  \'sass-lint',
+  \'slim_lint',
+  \'xmllint',
+  \'yamllint'
+  \]
+let g:neomake_apiblueprint_enabled_makers = ['drafter']
+let g:neomake_coffee_enabled_makers = ['coffeelint']
+let g:neomake_css_enabled_makers = ['csslint']
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_json_enabled_makers = ['jsonlint']
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop-rails']
+let g:neomake_scss_enabled_makers = ['sass-lint']
+let g:neomake_slim_enabled_makers = ['slim_lint']
+let g:neomake_xml_enabled_makers = ['xmllint']
+let g:neomake_yaml_enabled_makers = ['yamllint']
+
 let g:airline#extensions#neomake#enabled = 1
 call neomake#configure#automake('nw', 500)
 
