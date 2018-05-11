@@ -32,6 +32,7 @@ if dein#load_state('/Users/thedelchop/.cache/dein')
   call dein#add('tpope/vim-surround')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('airblade/vim-rooter')
   call dein#add('wellle/tmux-complete.vim')
   call dein#add('thedelchop/denite-rails')
@@ -189,6 +190,19 @@ let g:NERDTreeMarkBookmarks = 0
 let g:NERDTreeBookmarksSort = 0
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+" NERDTree Git plugin setup
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 " Setup eSearch for searching across files
 let g:esearch = {
