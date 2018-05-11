@@ -41,6 +41,7 @@ if dein#load_state('/Users/thedelchop/.cache/dein')
   call dein#add('eugen0329/vim-esearch')
   call dein#add('yggdroot/indentline')
   call dein#add('myusuf3/numbers.vim')
+  call dein#add('metakirby5/codi.vim')
 
 " Required:
   call dein#end()
@@ -197,7 +198,11 @@ let g:esearch = {
   \}
 
 " Setup linenumbers.vim to toggle absolute/relative line numbers
-let g:numbers_exclude = ['nerdtree', 'denite']
+let g:numbers_exclude = ['nerdtree', 'denite', 'codi']
+
+" Setup Codi as our interactive on the fly scratchpad/repl
+let g:codi#use_buffer_dir = 0
+let g:codi#width = 75
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 if (has("termguicolors"))
